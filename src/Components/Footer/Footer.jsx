@@ -3,7 +3,7 @@ import "./Footer.css"; // Optional for extra styling
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light pt-4 ">
+    <footer className="bg-dark text-light pt-4 mb-0">
       <div className="container">
         <div className="row">
           {/* My Account */}
