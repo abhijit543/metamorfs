@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Home.css";
+
 import Percent from "../../assets/images/home/percent.jpg";
 import customer from "../../assets/images/home/customer-testimonial.jpg";
-import one from "../../../src/assets/images/home/1.jpg";
+import one from "../../assets/images/home/1.jpg";
 import two from "../../../src/assets/images/home/2.jpg";
 import three from "../../../src/assets/images/home/3.jpg";
 import four from "../../../src/assets/images/home/4.jpg";
@@ -13,13 +14,7 @@ import weShip from "../../../src/assets/images/home/we-ship.jpg";
 import MultipleItems from "../../Components/MultipleProducts/MultipleProducts";
 const carouselImages = [customer, customer];
 
-const categories = [
-  "FEATURED",
-  "BEST SELLERS",
-  "NEW ARRIVALS",
-  "SPECIALS",
-  "CISCO",
-];
+const categories = ["FEATURED", "BEST SELLERS", "NEW ARRIVALS", "SPECIALS", "CISCO"];
 
 const products = [
   {
@@ -82,46 +77,19 @@ function Home() {
         <div className="container">
           <div className="row">
             <div className="col-md-7">
-              <div
-                id="homeCarousel"
-                className="carousel slide"
-                data-bs-ride="carousel"
-              >
+              <div id="homeCarousel" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                   {carouselImages.map((img, index) => (
-                    <div
-                      key={index}
-                      className={`carousel-item ${index === 0 ? "active" : ""}`}
-                    >
-                      <img
-                        src={img}
-                        className="d-block w-100"
-                        alt={`Slide ${index + 1}`}
-                      />
+                    <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+                      <img src={img} className="d-block w-100" alt={`Slide ${index + 1}`} />
                     </div>
                   ))}
                 </div>
-                <button
-                  className="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#homeCarousel"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    className="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
+                <button className="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                 </button>
-                <button
-                  className="carousel-control-next"
-                  type="button"
-                  data-bs-target="#homeCarousel"
-                  data-bs-slide="next"
-                >
-                  <span
-                    className="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
+                <button className="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 </button>
               </div>
             </div>
@@ -138,11 +106,7 @@ function Home() {
         <div className="container">
           <div className="category-nav">
             {categories.map((category) => (
-              <div
-                key={category}
-                className={category === selectedCategory ? "active" : ""}
-                onClick={() => setSelectedCategory(category)}
-              >
+              <div key={category} className={category === selectedCategory ? "active" : ""} onClick={() => setSelectedCategory(category)}>
                 {category}
               </div>
             ))}
@@ -153,29 +117,17 @@ function Home() {
               .filter((product) => product.category === selectedCategory)
               .map((product) => (
                 <div key={product.id} className="product-card">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="product-image"
-                  />
+                  <img src={product.image} alt={product.name} className="product-image" />
                   <p className="product-name">{product.name}</p>
                   <p className="product-price">{product.price}</p>
                   <div className="product-actions">
-                    <button
-                      className="cart-btn"
-                      data-tooltip-id="cartTooltip"
-                      data-tooltip-content="Add to Cart"
-                    >
-                      <i class="fas fa-cart-arrow-down"></i>
+                    <button className="cart-btn" data-tooltip-id="cartTooltip" data-tooltip-content="Add to Cart">
+                      <i className="fas fa-cart-arrow-down"></i>
                     </button>
                     <Tooltip id="cartTooltip" />
 
-                    <button
-                      className="wishlist-btn"
-                      data-tooltip-id="wishlistTooltip"
-                      data-tooltip-content="Add to Wish List"
-                    >
-                      <i class="far fa-heart"></i>
+                    <button className="wishlist-btn" data-tooltip-id="wishlistTooltip" data-tooltip-content="Add to Wish List">
+                      <i className="far fa-heart"></i>
                     </button>
                     <Tooltip id="wishlistTooltip" />
                   </div>
@@ -198,7 +150,7 @@ function Home() {
       </section>
       <section>
         <div className="container">
-        <MultipleItems/>
+          <MultipleItems />
         </div>
       </section>
     </>
