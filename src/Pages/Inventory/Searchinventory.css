@@ -1,0 +1,12 @@
+.search-inventory{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.search-Main-text{
+    text-align: left;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: rgb(238, 238, 238);
+    line-height: 40px;
+    min-height: 40px;
+}
