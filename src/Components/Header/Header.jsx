@@ -94,7 +94,7 @@ const Header = () => {
               </li>
               <li className="nav-item navItem-new">
                 <a className="nav-link" href="#">
-                  MANUFACTURERS
+                  CONTACT US
                 </a>
               </li>
               <li className="nav-item navItem-new">
@@ -110,11 +110,6 @@ const Header = () => {
               <li className="nav-item navItem-new">
                 <a className="nav-link" href="#">
                   MY ACCOUNT
-                </a>
-              </li>
-              <li className="nav-item navItem-new">
-                <a className="nav-link" href="#">
-                  CONTACT US
                 </a>
               </li>
             </ul>
