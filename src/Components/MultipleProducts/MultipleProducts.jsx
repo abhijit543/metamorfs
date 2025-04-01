@@ -18,20 +18,27 @@ const manufacturers = [
   { name: "Extreme Networks", logo: one },
   { name: "Extreme Networks", logo: one },
   { name: "Extreme Networks", logo: one },
-  { name: "Extreme Networks", logo: one },
 ];
-
 
 function MultipleItems() {
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 7, 
+    slidesToShow: 6, 
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    arrows: true
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 768, 
+        settings: {
+          slidesToShow: 2, 
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   return (
