@@ -54,30 +54,19 @@ const Searchinventory = () => {
           <h3 className="text-lg font-semibold mb-2">Search Criteria</h3>
           <div className="d-flex gap-2 align-items-center">
             <input type="text" placeholder="Keywords" className="border p-2 rounded w-full" onChange={(obj) => setSearchinv(obj.target.value)} value={searchinv} />
-            <select className="border p-2 rounded">
-              <option>Categories</option>
-            </select>
-            <input type="checkbox" id="subcategories" />
-            <label htmlFor="subcategories">Search in subcategories</label>
-            <input type="checkbox" id="descriptions" className="ml-4" />
-            <label htmlFor="descriptions">Search in product descriptions</label>
+
+            <button className="btn btn-primary" onClick={showSearchInv}>
+              Search
+            </button>
           </div>
         </div>
 
-        <div className="mt-4">
-          <button className="btn btn-primary" onClick={showSearchInv}>
-            Search
-          </button>
-        </div>
-
         {isSearchEmpty && (
-          <div className="mt-6 border-t pt-4">
+          <div className="col-12 text-center mt-4">
             <h3 className="text-lg font-semibold">Search</h3>
             <p>Your shopping cart is empty!</p>
           </div>
         )}
-
-        {/* Show Products if any match found */}
         <div className="row">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
