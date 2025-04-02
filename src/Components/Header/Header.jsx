@@ -93,14 +93,14 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item navItem-new">
-                <Link className="nav-link" to='/contact' >
+                <Link className="nav-link" to="/contact">
                   CONTACT US
                 </Link>
               </li>
               <li className="nav-item navItem-new">
-                <a className="nav-link" href="#">
-                  SPECIALS
-                </a>
+                <Link className="nav-link" to="/careers">
+                  CAREERS
+                </Link>
               </li>
               <li className="nav-item navItem-new">
                 <a className="nav-link" href="#">
