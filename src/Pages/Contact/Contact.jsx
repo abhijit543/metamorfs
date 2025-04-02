@@ -1,135 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 import "./Contact.css";
-
+import swal from "sweetalert";
 function Contact() {
-  return (
-    <>
-      <div className="container-fluid">
-        <div className="address-block">
-          <div className="row text-center pt-5">
-            <div className="col-md-4">
-              <h2 className="up-color">Dubai</h2>
-              <p className="up-color">
-                <strong>Address</strong>
-              </p>
-              <p className="up-color">
-                Office #202, Infinity Business Centre | Al Barsha Business
-                Centre, Al Barsha 1,
-                <br />
-                PO Box 2769,
-                <br />
-                Dubai, UAE
-              </p>
-              <p>
-                <a href="mailto:info@metamorfs.com" className="up-color">
-                  Email
-                </a>
-                : info@metamorfs.com
-              </p>
-            </div>
-            <div className="col-md-4">
-              <h2 className="up-color">India</h2>
-              <p className="up-color">
-                <strong>Address</strong>
-              </p>
-              <p className="up-color">
-                289-A,3rd Floor, DISHAA, 12th Cross, Ideal Home Township,
-                Rajarajeshwari
-                <br />
-                Nagar, Mysore Road,
-                <br />
-                Bangalore – 560 098. INDIA
-              </p>
-              <p>
-                <a href="mailto:info@metamorfs.com" className="up-color">
-                  Email
-                </a>
-                : info@metamorfs.com
-              </p>
-            </div>
-            <div className="col-md-4">
-              <h2 className="up-color">United Kingdom
-              </h2>
-              <p className="up-color">
-                <strong>Address</strong>
-              </p>
-              <p className="up-color">
-              Suite 5, Stanley House, Stanley Avenue, Alperton Wembley Middlesex
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    companyName: "",
+    email: "",
+    phone: "",
+    country: "",
+    message: "",
+  });
 
-                <br />
-                HA0 4JB London
-              </p>
-              <p>
-                <a href="mailto:info@metamorfs.com" className="up-color">
-                  Email
-                </a>
-                : info@metamorfs.com
-              </p>
-            </div>
-          </div>
-        </div>
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendDetails = (e) => {
+    e.preventDefault();
+
+    // Validate all fields are filled
+    if (!formData.firstName || !formData.lastName || !formData.companyName || !formData.email || !formData.phone || !formData.country || !formData.message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    // EmailJS expects an object with the exact template variables
+    const emailParams = {
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      company_name: formData.companyName,
+      email: formData.email,
+      phone: formData.phone,
+      country: formData.country,
+      message: formData.message,
+    };
+
+    // Send email using EmailJS
+    emailjs.send("service_862nhrr", "template_qzm4la3", emailParams, "lszWWLLrkCYWnaXsL").then(
+      (response) => {
+        console.log(response);
+        swal("Save Success", "Message sent successfully!", "success");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          companyName: "",
+          email: "",
+          phone: "",
+          country: "",
+          message: "",
+        });
+      },
+      (error) => {
+        console.error("EmailJS Error:", error);
+        swal("Error", "Failed to send message. Please try again.", "error");
+      }
+    );
+  };
+
+  return (
+    <div className="contact-container">
+      <div className="contact-box">
+        <h1>Talk with an expert</h1>
+        <p>Request a call to find out how we can help transform your business.</p>
+        <form className="contact-form" onSubmit={sendDetails}>
+          <input type="text" name="firstName" placeholder="First Name*" value={formData.firstName} onChange={handleChange} required />
+          <input type="text" name="lastName" placeholder="Last Name*" value={formData.lastName} onChange={handleChange} required />
+          <input type="text" name="companyName" placeholder="Company Name*" value={formData.companyName} onChange={handleChange} required className="full-width" />
+          <input type="email" name="email" placeholder="Email*" value={formData.email} onChange={handleChange} required />
+          <input type="tel" name="phone" placeholder="Phone Number*" value={formData.phone} onChange={handleChange} required />
+          <select name="country" value={formData.country} onChange={handleChange} required className="full-width">
+            <option value="">Country*</option>
+            <option>Afghanistan</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+          </select>
+          <textarea name="message" placeholder="Message*" value={formData.message} onChange={handleChange} required className="full-width"></textarea>
+          <button type="submit" className="submit-button">
+            Contact Me
+          </button>
+        </form>
       </div>
-      <div className="contact-container">
-        <div className="contact-box">
-          <h1>Talk with an expert</h1>
-          <p>
-            Request a call to find out how we can help transform your business.
-          </p>
-          <form className="contact-form">
-            <input type="text" placeholder="First Name*" required />
-            <input type="text" placeholder="Last Name*" required />
-            <input
-              type="text"
-              placeholder="Company Name*"
-              required
-              className="full-width"
-            />
-            <input type="email" placeholder="Email*" required />
-            <input type="tel" placeholder="Phone Number*" required />
-            <select required className="full-width">
-              <option value="">Country*</option>
-              <option>Afghanistan</option>
-              <option>India</option>
-              <option>United States</option>
-              <option>United Kingdom</option>
-            </select>
-            <textarea
-              placeholder="Message*"
-              required
-              className="full-width"
-            ></textarea>
-            <button type="submit" className="submit-button">
-              Contact Me
-            </button>
-            <p>
-              By clicking 'Contact Me' above, you acknowledge that METAMORFS
-              will store and process the personal information submitted above to
-              provide you the content requested and in the legitimate interests
-              of Metamorf Group.
-            </p>
-            <div className="checkbox-label">
-              <label>
-                <input type="checkbox" />
-              </label>
-              <p className="chk-box-content">
-                Yes, I would like to receive marketing communications regarding
-                METAMORFS products, services, and events.
-              </p>
-            </div>
-            <p>
-              You may unsubscribe from these communications at any time. For
-              more information on how to unsubscribe, our privacy practices, and
-              how we are committed to protecting and respecting your privacy,
-              please review our Privacy Notice.
-            </p>
-          </form>
-          {/* <p className="disclaimer">
-          By clicking 'Contact Me', you acknowledge that METAMORFS will store
-          and process the personal information submitted above.
-        </p> */}
-        </div>
-      </div>
-    </>
+    </div>
   );
 }
 
