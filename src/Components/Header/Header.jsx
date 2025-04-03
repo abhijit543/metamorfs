@@ -102,16 +102,6 @@ const Header = () => {
                   CAREERS
                 </Link>
               </li>
-              <li className="nav-item navItem-new">
-                <a className="nav-link" href="#">
-                  AFFILIATES
-                </a>
-              </li>
-              <li className="nav-item navItem-new">
-                <a className="nav-link" href="#">
-                  MY ACCOUNT
-                </a>
-              </li>
             </ul>
           </div>
         </div>

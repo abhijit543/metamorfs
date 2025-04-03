@@ -1,12 +1,11 @@
 import React from "react";
-import "./Footer.css"; // Optional for extra styling
+import "./Footer.css";
 
 const Footer = () => {
   return (
     <footer className="bg-dark text-light pt-4 mb-0">
       <div className="container">
         <div className="row">
-          {/* My Account */}
           <div className="col-md-3">
             <h5 className="fw-bold">MY ACCOUNT</h5>
             <ul className="list-unstyled">
@@ -38,7 +37,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Extras */}
           <div className="col-md-3">
             <h5 className="fw-bold">EXTRAS</h5>
             <ul className="list-unstyled">
@@ -60,7 +58,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Information */}
           <div className="col-md-3">
             <h5 className="fw-bold">INFORMATION</h5>
             <ul className="list-unstyled">
@@ -82,7 +79,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Customer Service */}
           <div className="col-md-3">
             <h5 className="fw-bold">CUSTOMER SERVICE</h5>
             <ul className="list-unstyled">
@@ -105,7 +101,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
         <hr className="bg-light" />
         <div className="d-flex justify-content-between">
           <p>Copyright © 1996 - 2025. All rights reserved.</p>

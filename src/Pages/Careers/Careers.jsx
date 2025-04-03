@@ -1,5 +1,7 @@
 import React from "react";
 import "./Careers.css";
+
+import { Link } from "react-router-dom";
 const Careers = () => {
   return (
     <div className="row">
@@ -22,15 +24,15 @@ const Careers = () => {
             <strong>We’re located in some of the most dynamic cities in the world - great places where great people do great things.</strong>
           </p>
           <div className="d-flex justify-content-center align-items-center mb-2">
-            <a href="/jobs" className="btn btn-warning btn-lg ">
+            <Link to="/jobslist" className="btn btn-warning btn-lg ">
               View Open Positions
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="col-md-4 mt-5 job-link">
-        <img src="/public/careers/career2.jpg" alt="Careers" className="img-fluid rounded shadow" />
+        <img src="/careers/career2.jpg" alt="Careers" className="img-fluid rounded shadow" />
       </div>
     </div>
   );
