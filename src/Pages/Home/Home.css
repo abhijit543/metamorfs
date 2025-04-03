@@ -90,4 +90,7 @@
       flex-direction: column;
     }
   }
+  .category-nav{
+    cursor: pointer;
+  }
   

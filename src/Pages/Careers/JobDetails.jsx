@@ -9,7 +9,6 @@ const JobDetails = () => {
       .then((response) => response.json())
       .then((data) => {
         const selectedJob = data.find((job) => job.id === parseInt(id));
-        console.log(selectedJob);
 
         setDetailsJob(selectedJob);
       });
